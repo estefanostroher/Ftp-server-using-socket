@@ -1,8 +1,6 @@
 import socket, struct, sys, os, time
 from sys import argv
 
-# Usage: python3 client-tcp.py 127.0.0.1 2121 -n
-
 def correct_usage_parameters_message():
     if len(argv) != 4:
         print("Usage: python3 client.py <IP> <PORT> [-q <quiet_mode> -n <not_quiet_mode>]")
@@ -52,7 +50,7 @@ def create_socket_connection():
         exit(1)
     return soc, buffer_size, QUIET_MODE
 
-def storage_file_to_server(soc, buffer_size, command, file_name, quiet_mode):
+def store_file_to_server(soc, buffer_size, command, file_name, quiet_mode):
     if quiet_mode == "-q":
         sys.stdout = open(os.devnull, 'w')
         sys.stderr = open(os.devnull, 'w')
@@ -372,9 +370,9 @@ def clear_terminal():
 def display_commands():
     # Display all commands
     print("\nAvailable Commands:")
-    print("\n\tSTOR file_path       : Upload file")
-    print("\tRETR file_path       : Download file")
-    print("\tDEL file_path        : Delete file")
+    print("\n\tSTOR file_name     : Upload file")
+    print("\tRETR file_name       : Download file")
+    print("\tDEL file_name        : Delete file")
     print("\tLIST/LS              : List all files")
     print("\tSHOW/DISPLAY         : Display all commands")
     print("\tCLEAR                : Clear terminal")
@@ -390,7 +388,7 @@ def handle_client(soc, buffer_size, quiet_mode):
         while True:
             choice = input("\nEnter a command: ")
             if choice[:4].upper() == "STOR":
-                storage_file_to_server(soc, buffer_size, choice[:4].upper(), choice[4:].strip(), quiet_mode)
+                store_file_to_server(soc, buffer_size, choice[:4].upper(), choice[4:].strip(), quiet_mode)
             elif choice[:4].upper() == "LIST" or choice[:2].upper() == "LS":
                 list_files_from_server(soc, choice.upper(), quiet_mode)
             elif choice[:4].upper() == "RETR":
