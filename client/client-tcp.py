@@ -373,10 +373,10 @@ def display_commands():
     print("\n\tSTOR filename     : Upload file")
     print("\tRETR filename       : Download file")
     print("\tDEL filename        : Delete file")
-    print("\tLIST/LS              : List all files")
-    print("\tSHOW/DISPLAY         : Display all commands")
-    print("\tCLEAR                : Clear terminal")
-    print("\tQUIT/EXIT/BYE        : Exit")
+    print("\tLIST/LS             : List all files")
+    print("\tSHOW/DISPLAY        : Display all commands")
+    print("\tCLEAR               : Clear terminal")
+    print("\tQUIT/EXIT/BYE       : Exit")
     return
 
 def handle_client(soc, buffer_size, quiet_mode):   
