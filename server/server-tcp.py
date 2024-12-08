@@ -1,8 +1,6 @@
 import socket, struct, sys, time, os
 from sys import argv
 
-# Usage: python3 server-tcp.py 127.0.0.1 2121 1024 -q
-
 def correct_usage_parameters_message():
     if len(argv) != 5:
         print("Usage: python3 server.py <IP> <PORT> <BUFFER_SIZE> [-q <quiet_mode> -n <not_quiet_mode>]")
@@ -43,7 +41,7 @@ def create_socket_connection():
         exit(1)
     return soc, BUFFER_SIZE, QUIET_MODE
 
-def storage_file_to_server(connect, buffer_size, quiet_mode):
+def store_file_to_server(connect, buffer_size, quiet_mode):
     if quiet_mode == "-q":
         sys.stdout = open(os.devnull, 'w')
         sys.stderr = open(os.devnull, 'w')
@@ -322,7 +320,7 @@ def handle_client(connect, soc, buffer_size, quiet_mode):
             print("\nReceived instruction: {}".format(data))
 
             if data == "STOR":
-                storage_file_to_server(connect, buffer_size, quiet_mode)
+                store_file_to_server(connect, buffer_size, quiet_mode)
             elif data == "LIST" or data == "LS":
                 list_files_from_server(connect, buffer_size, quiet_mode)
             elif data == "RETR":
