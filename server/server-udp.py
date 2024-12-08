@@ -1,8 +1,6 @@
 import socket, struct, sys, os, time
 from sys import argv
 
-# Usage: python3 server-udp.py 127.0.0.1 2121 1024 -q
-
 def correct_usage_parameters_message():
     if len(argv) != 5:
         print("Usage: python3 server.py <IP> <PORT> <BUFFER_SIZE> [-q <quiet_mode> -n <not_quiet_mode>]")
