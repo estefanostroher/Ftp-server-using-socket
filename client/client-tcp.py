@@ -370,9 +370,9 @@ def clear_terminal():
 def display_commands():
     # Display all commands
     print("\nAvailable Commands:")
-    print("\n\tSTOR file_name     : Upload file")
-    print("\tRETR file_name       : Download file")
-    print("\tDEL file_name        : Delete file")
+    print("\n\tSTOR filename     : Upload file")
+    print("\tRETR filename       : Download file")
+    print("\tDEL filename        : Delete file")
     print("\tLIST/LS              : List all files")
     print("\tSHOW/DISPLAY         : Display all commands")
     print("\tCLEAR                : Clear terminal")
