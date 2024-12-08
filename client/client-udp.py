@@ -1,8 +1,6 @@
 import socket, struct, sys, os, time
 from sys import argv
 
-# Usage: python3 client-udp.py 127.0.0.1 2121 1024 -n
-
 def correct_usage_parameters_message():
     if len(argv) != 5:
         print("Usage: python3 client-udp.py <IP> <PORT> <BUFFER_SIZE> [-q <quiet_mode> -n <not_quiet_mode>]")
@@ -207,13 +205,13 @@ def clear_terminal():
 def display_commands():
     # Display all commands
     print("\nAvailable Commands:")
-    print("\n\tSTOR file_path       : Upload file")
-    print("\tRETR file_path       : Download file")
-    print("\tDEL file_path        : Delete file")
-    print("\tLIST/LS              : List all files")
-    print("\tSHOW/DISPLAY         : Display all commands")
-    print("\tCLEAR                : Clear terminal")
-    print("\tQUIT/EXIT/BYE        : Exit")
+    print("\n\tSTOR filename     : Upload file")
+    print("\tRETR filename       : Download file")
+    print("\tDEL filename        : Delete file")
+    print("\tLIST/LS             : List all files")
+    print("\tSHOW/DISPLAY        : Display all commands")
+    print("\tCLEAR               : Clear terminal")
+    print("\tQUIT/EXIT/BYE       : Exit")
     return
 
 def handle_client(soc, server_addr, buffer_size, quiet_mode):
